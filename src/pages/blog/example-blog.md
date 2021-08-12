@@ -1,6 +1,6 @@
 ---
 title: Example Blog
-description: 
+description: This is an example blog post
 publishDate: Saturday, July 31 2021
 permalink: https://example.com/blog/example-blog
 author: "Jaydan Urwin"
