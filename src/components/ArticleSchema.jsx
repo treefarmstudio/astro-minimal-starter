@@ -21,8 +21,9 @@ function ArticleSchema({title, permalink, publishDate, ogImageUrl, description})
             "url": "https://example.com/about/",
             "sameAs": [
                 `${site.url}`,
-                "https://instagram.com/example",
-                "https://twitter.com/example"
+                `${site.facebookURL}`,
+                `${site.twitterURL}`,
+                `${site.instagramURL}`
             ]
         },
         "headline": `${title}`,
