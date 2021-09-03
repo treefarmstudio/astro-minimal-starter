@@ -1,7 +1,7 @@
 ---
 // Component Imports
-import BaseLayout from '../layouts/BaseLayout.astro'
-import BlogPostPreview from '../components/BlogPostPreview.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import BlogPostPreview from '../../components/BlogPostPreview.astro';
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
@@ -13,41 +13,22 @@ let permalink = 'https://example.com/blog/';
 
 // collection
 // import authorData from '../data/authors.json';
-export function createCollection() {
-  return {
-    route: `/blog/:page?`,
-    paginate: true,
-    async props({ paginate }) {
-      /* Fetch all markdown posts */
-      let allPosts = Astro.fetchContent('./blog/*.md');
-      allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
-      return {
-        posts: paginate(allPosts, {pageSize: 100})
-      }
-    },
-     /** Generate RSS feed (only for main /posts/ feed) */
-    rss: {
-      title: 'Example Blog',
-      description: 'Example Blog',
-      item: (item) => ({
-        title: item.title,
-        description: item.description,
-        link: item.url,
-        pubDate: item.date,
-      }),
-    }
-  };
+export async function getStaticPaths({paginate, rss}) {
+    /* Fetch all markdown posts */
+    const allPosts = Astro.fetchContent('../blog/**/*.md');
+    const sortedPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+    return paginate(sortedPosts, {pageSize: 10});
 }
 
-const { posts } = Astro.props;
+const { page } = Astro.props;
 ---
 <!DOCTYPE html>
 <BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL.href}>
-  <article class="blog-page-content__article">
-    <section class="postlist">
-      {posts.data.map(post => <BlogPostPreview post={post} />)}
-    </section>
-  </article>
+    <article class="blog-page-content__article">
+      <section class="post-list__section">
+        {page.data.map((post) => <BlogPostPreview post={post} />)}
+      </section>
+    </article>
 </BaseLayout>
 
 <style>
