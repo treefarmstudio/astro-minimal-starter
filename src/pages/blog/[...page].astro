@@ -25,7 +25,7 @@ const { page } = Astro.props;
 <!DOCTYPE html>
 <BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL.href}>
     <article class="blog-page-content__article">
-      <section class="post-list__section">
+      <section class="postlist">
         {page.data.map((post) => <BlogPostPreview post={post} />)}
       </section>
     </article>
@@ -41,15 +41,6 @@ const { page } = Astro.props;
     list-style: none;
     padding: 0;
   
-  }
-  .postlist-item {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .postlist-item__img {
-    border-radius: 0.5rem;
-    height: auto;
   }
     
   @media screen and (max-width: 769px) {
