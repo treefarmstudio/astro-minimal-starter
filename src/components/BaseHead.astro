@@ -20,7 +20,7 @@ const { title, description, permalink, publishDate, ogImageUrl, canonicalURL, ar
 <link rel="icon" href="/favicon.svg">
 <link rel="stylesheet" href="/style/global.css"/>
 <!-- Primary Meta Tags -->
-<title>{title}</title>
+<title>{title || site.title}</title>
 <meta name="title" content={title || site.title} />
 <meta name="description" content={description || site.description} />
 <!-- Sitemap -->
