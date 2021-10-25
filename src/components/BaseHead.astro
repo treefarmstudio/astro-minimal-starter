@@ -1,7 +1,4 @@
 ---
-import ArticleSchema from "./ArticleSchema.jsx";
-import site from "../data/site.js";
-
 export interface Props {
   title: string;
   description: string;
@@ -11,6 +8,11 @@ export interface Props {
   canonicalURL?: string;
   articleSchema?: boolean;
 }
+
+import ArticleSchema from "./ArticleSchema.jsx";
+import site from "../data/site.js";
+
+
 const { title, description, permalink, publishDate, ogImageUrl, canonicalURL, articleSchema } = Astro.props;
 ---
 
