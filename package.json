@@ -7,6 +7,6 @@
     "build": "astro build"
   },
   "devDependencies": {
-    "astro": "^0.0.0-compiler-202192918243"
+    "astro": "^0.21.0"
   }
 }
