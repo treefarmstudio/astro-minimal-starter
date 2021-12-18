@@ -1,6 +1,6 @@
 {
   "name": "astro-minimal-starter",
-  "version": "0.1.1",
+  "version": "v1.1.0",
   "private": false,
   "scripts": {
     "start": "astro dev",
