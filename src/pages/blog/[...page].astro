@@ -19,8 +19,7 @@ import BlogPostPreview from '../../components/BlogPostPreview.astro';
 let title = 'Example Blog';
 let description = 'This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.';
 let permalink = 'https://example.com/blog/';
-
-
+import Paginator from '../../components/Paginator.astro';
 
 const { page } = Astro.props;
 ---
@@ -31,6 +30,8 @@ const { page } = Astro.props;
         {page.data.map((post) => <BlogPostPreview post={post} />)}
       </section>
     </article>
+    
+    <Paginator page={page} />
 </BaseLayout>
 
 <style>
