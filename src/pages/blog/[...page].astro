@@ -11,7 +11,7 @@ export async function getStaticPaths({paginate}) {
 // Component Imports
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import BlogPostPreview from '../../components/BlogPostPreview.astro';
-
+import Paginator from '../../components/Paginator.astro'
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
 // It will run during the build, but never in the browser.
@@ -31,6 +31,7 @@ const { page } = Astro.props;
         {page.data.map((post) => <BlogPostPreview post={post} />)}
       </section>
     </article>
+    <Paginator page={page}/>
 </BaseLayout>
 
 <style>
