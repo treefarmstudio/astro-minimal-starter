@@ -2,6 +2,8 @@
 
 # astro-minimal-starter
 
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/jaydanurwin/astro-minimal-starter)
+
 ## [Demo Site](https://astro-minimal-starter.netlify.app/)
 
 If you haven't heard about [Astro](https://astro.build) yet you're missing out. This starter repo gives you a blog website with posts written in Markdown, all powered by Astro.
