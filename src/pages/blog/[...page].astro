@@ -1,17 +1,16 @@
 ---
-// collection
-// import authorData from '../data/authors.json';
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Container from '../../components/Container.astro';
+import BlogPostPreview from '../../components/BlogPostPreview.astro';
+import Paginator from '../../components/Paginator.astro'
+  
+  
 export async function getStaticPaths({paginate}) {
     /* Fetch all markdown posts */
     const allPosts = Astro.fetchContent('../blog/**/*.md');
     const sortedPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
     return paginate(sortedPosts, {pageSize: 10});
 }
-
-// Component Imports
-import BaseLayout from '../../layouts/BaseLayout.astro'
-import BlogPostPreview from '../../components/BlogPostPreview.astro';
-import Paginator from '../../components/Paginator.astro'
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
 // It will run during the build, but never in the browser.
@@ -26,12 +25,14 @@ const { page } = Astro.props;
 ---
 <!DOCTYPE html>
 <BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL.href}>
+  <Container>
     <article class="blog-page-content__article">
       <section class="postlist">
         {page.data.map((post) => <BlogPostPreview post={post} />)}
       </section>
     </article>
     <Paginator page={page}/>
+    </Container>
 </BaseLayout>
 
 <style>
