@@ -4,9 +4,11 @@
   "private": false,
   "scripts": {
     "start": "astro dev",
-    "build": "astro build"
+    "build": "astro build",
+    "format": "npx prettier --write ."
   },
   "devDependencies": {
-    "astro": "^0.24.3"
+    "astro": "^0.24.3",
+    "prettier-plugin-astro": "^0.0.12"
   }
 }

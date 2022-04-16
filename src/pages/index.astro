@@ -1,20 +1,46 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Container from '../components/Container.astro';
-let title = 'Astro Minimal Starter';
-let description = 'This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.';
-let permalink = 'https://example.com/';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Container from "../components/Container.astro";
+let title = "Astro Minimal Starter";
+let description =
+  "This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.";
+let permalink = "https://example.com/";
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL.href}>
-<Container>
+<BaseLayout
+  title={title}
+  description={description}
+  permalink={permalink}
+  canonicalURL={Astro.request.canonicalURL.href}
+>
+  <Container>
     <h1>Astro Minimal Starter</h1>
-    <p>If you haven't heard about <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a> yet you're missing out. This starter repo gives you a blog website with posts written in Markdown, all powered by Astro.</p>
+    <p>
+      If you haven't heard about <a
+        href="https://astro.build"
+        target="_blank"
+        rel="noopener noreferrer">Astro</a
+      > yet you're missing out. This starter repo gives you a blog website with posts
+      written in Markdown, all powered by Astro.
+    </p>
 
-  <p>Don't be fooled by the simplicity of this starter either. With excellent SEO built in, Astro's excellent developer environment, and performance best practices you're getting one of the best foundations for a personal blog with posts written in markdown. The reason for making such a bare bones starter in terms of styles is that it has what you need out of the box for SEO and site structure but it makes no assumptions about how you want it look and behave. </p>
+    <p>
+      Don't be fooled by the simplicity of this starter either. With excellent
+      SEO built in, Astro's excellent developer environment, and performance
+      best practices you're getting one of the best foundations for a personal
+      blog with posts written in markdown. The reason for making such a bare
+      bones starter in terms of styles is that it has what you need out of the
+      box for SEO and site structure but it makes no assumptions about how you
+      want it look and behave.
+    </p>
 
-  <p>Sometimes starters can feel like they are giving us way too much and you'll spend a day picking apart half of the code to get to the setup you actually wanted. Want to use vanilla CSS instead of Tailwind or Scss? No problem!</p>
+    <p>
+      Sometimes starters can feel like they are giving us way too much and
+      you'll spend a day picking apart half of the code to get to the setup you
+      actually wanted. Want to use vanilla CSS instead of Tailwind or Scss? No
+      problem!
+    </p>
 
-  <a href="/blog">Blog →</a>
-</Container>
+    <a href="/blog">Blog →</a>
+  </Container>
 </BaseLayout>
