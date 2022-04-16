@@ -38,19 +38,14 @@ const { page } = Astro.props;
 <style>
  /* Posts list */
   .postlist {
-    margin-top: 2rem;
+    padding: 1rem 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     list-style: none;
-    padding: 0;
-  
   }
     
   @media screen and (max-width: 769px) {
-    .blog-page-content__article {
-      padding: 1rem;
-    }
     .postlist {
       grid-template-columns: 1fr;
     }
