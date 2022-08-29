@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import Layout from "../layouts/Base.astro";
 import Container from "../components/Container.astro";
 let title = "Astro Minimal Starter";
 let description =
@@ -7,11 +7,10 @@ let description =
 let permalink = "https://example.com/";
 ---
 
-<BaseLayout
+<Layout
   title={title}
   description={description}
   permalink={permalink}
-  canonicalURL={Astro.request.canonicalURL.href}
 >
   <Container>
     <h1>Astro Minimal Starter</h1>
@@ -43,4 +42,4 @@ let permalink = "https://example.com/";
 
     <a href="/blog">Blog →</a>
   </Container>
-</BaseLayout>
+</Layout>
