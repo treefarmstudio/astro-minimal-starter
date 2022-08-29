@@ -1,6 +1,5 @@
 ---
-setup: |
-  import Layout from '../../layouts/BlogPostLayout.astro';
+layout: ../../layouts/Post.astro
 title: Example Blog
 description: This is an example blog post
 publishDate: Saturday, July 31 2021

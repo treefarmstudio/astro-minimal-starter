@@ -1,0 +1,34 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Container from "../components/Container.astro";
+const { frontmatter } = Astro.props;
+---
+
+<html>
+  <head>
+    <BaseHead
+      title={frontmatter.title}
+      description={frontmatter.description}
+      permalink={frontmatter.permalink}
+      ogImageUrl={frontmatter.heroImage}
+      publishDate={frontmatter.publishDate}
+      articleSchema
+    />
+  </head>
+
+  <body>
+    <!-- <Header /> -->
+    <main>
+      <Container>
+        <article class="post-content__article">
+          {frontmatter.heroImage && <img width="720" height="420" class="post-main__img" loading="lazy" src={frontmatter.heroImage} alt={frontmatter.alt} />}
+          <h1>{frontmatter.title}</h1>
+          <time>{frontmatter.publishDate}</time>
+          <slot />
+      </article>
+
+      </Container>
+    </main>
+    <!-- <Footer/> -->
+  </body>
+</html>
