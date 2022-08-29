@@ -1,15 +1,28 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro'
+import Layout from '../../layouts/Base.astro'
 import Container from '../../components/Container.astro';
 import BlogPostPreview from '../../components/BlogPostPreview.astro';
 import Paginator from '../../components/Paginator.astro'
   
   
 export async function getStaticPaths({paginate}) {
-    /* Fetch all markdown posts */
-    const allPosts = Astro.fetchContent('../blog/**/*.md');
-    const sortedPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
-    return paginate(sortedPosts, {pageSize: 10});
+
+  const posts = await Astro.glob('./*.md').then(posts =>
+	posts
+		.map(({ frontmatter, url }) => ({
+      url: url,
+			title: frontmatter.title,
+			description: frontmatter.description,
+			publishDate: frontmatter.publishDate,
+			heroImage: frontmatter.heroImage,
+		}))
+		// .sort((a, b) => {
+		// 	new Date(b.publishDate) - new Date(a.publishDate)
+		// })
+);
+return paginate(posts, {pageSize: 10});
+
+
 }
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
@@ -19,12 +32,11 @@ let title = 'Example Blog';
 let description = 'This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.';
 let permalink = 'https://example.com/blog/';
 
-
-
 const { page } = Astro.props;
 ---
-<!DOCTYPE html>
-<BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL.href}>
+
+
+<Layout title={title} description={description} permalink={permalink} >
   <Container>
     <article class="blog-page-content__article">
       <section class="postlist">
@@ -32,8 +44,8 @@ const { page } = Astro.props;
       </section>
     </article>
     <Paginator page={page}/>
-    </Container>
-</BaseLayout>
+  </Container>
+</Layout>
 
 <style>
  /* Posts list */
