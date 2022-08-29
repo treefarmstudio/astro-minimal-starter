@@ -9,11 +9,13 @@ export interface Props {
   articleSchema?: boolean;
 }
 
-import ArticleSchema from "./ArticleSchema.jsx";
+import ArticleSchema from "./ArticleSchema.astro";
 import site from "../data/site.js";
 
 
-const { title, description, permalink, publishDate, ogImageUrl, canonicalURL, articleSchema } = Astro.props;
+const { title, description, permalink, publishDate, ogImageUrl, articleSchema } = Astro.props;
+
+const canonicalURL = new URL(Astro.props.canonicalURL || Astro.url.pathname, Astro.site);
 ---
 
 <meta charset="utf-8" />
@@ -33,14 +35,14 @@ const { title, description, permalink, publishDate, ogImageUrl, canonicalURL, ar
 <link rel="canonical" href={canonicalURL}>
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={canonicalURL || site.url} />
+<meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title || site.title} />
 <meta property="og:description" content={description || site.description} />
 <meta property="og:image" content={ogImageUrl ? `${site.url}${ogImageUrl}` : `${site.url}/assets/img/social.jpg`} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={canonicalURL || site.url} />
+<meta property="twitter:url" content={canonicalURL} />
 <meta property="twitter:title" content={title || site.title} />
 <meta property="twitter:description" content={description || site.description} />
 <meta property="twitter:image" content={ogImageUrl ? `${site.url}${ogImageUrl}` : `${site.url}/assets/img/social.jpg`} />
