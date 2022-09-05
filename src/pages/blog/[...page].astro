@@ -14,7 +14,7 @@ export async function getStaticPaths({paginate}) {
 			title: frontmatter.title,
 			description: frontmatter.description,
 			publishDate: frontmatter.publishDate,
-			heroImage: frontmatter.heroImage,
+			image: frontmatter.image,
 		}))
 		// .sort((a, b) => {
 		// 	new Date(b.publishDate) - new Date(a.publishDate)
@@ -28,15 +28,17 @@ return paginate(posts, {pageSize: 10});
 // You can write any JavaScript/TypeScript that you'd like here.
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
-let title = 'Example Blog';
-let description = 'This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.';
-let permalink = 'https://example.com/blog/';
+
+const seo = {
+  title: 'Example Blog',
+  description: 'This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.'
+}
 
 const { page } = Astro.props;
 ---
 
 
-<Layout title={title} description={description} permalink={permalink} >
+<Layout seo={seo} >
   <Container>
     <article class="blog-page-content__article">
       <section class="postlist">
