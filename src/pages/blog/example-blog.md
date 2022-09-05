@@ -1,12 +1,10 @@
 ---
-setup: |
-  import Layout from '../../layouts/BlogPostLayout.astro';
+layout: ../../layouts/Post.astro
 title: Example Blog
 description: This is an example blog post
 publishDate: Saturday, July 31 2021
-permalink: https://example.com/blog/example-blog
 author: "Jaydan Urwin"
-heroImage: "/assets/blog/example-blog/alex-bertha-7VAXeUIn3tI-unsplash.jpg"
+image: "/assets/blog/example-blog/alex-bertha-7VAXeUIn3tI-unsplash.jpg"
 alt: Trees in the mountains
 ---
 

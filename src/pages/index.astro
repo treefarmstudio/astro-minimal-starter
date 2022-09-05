@@ -1,17 +1,15 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import Layout from "../layouts/Base.astro";
 import Container from "../components/Container.astro";
-let title = "Astro Minimal Starter";
-let description =
-  "This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.";
-let permalink = "https://example.com/";
+
+const seo = {
+  title: "Astro Minimal Starter",
+  description: "This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support."
+  }
 ---
 
-<BaseLayout
-  title={title}
-  description={description}
-  permalink={permalink}
-  canonicalURL={Astro.request.canonicalURL.href}
+<Layout
+  seo={seo}
 >
   <Container>
     <h1>Astro Minimal Starter</h1>
@@ -43,4 +41,4 @@ let permalink = "https://example.com/";
 
     <a href="/blog">Blog →</a>
   </Container>
-</BaseLayout>
+</Layout>

@@ -1,6 +1,6 @@
 {
   "name": "astro-minimal-starter",
-  "version": "v1.2.1",
+  "version": "v1.4.0",
   "private": false,
   "scripts": {
     "start": "astro dev",
@@ -8,7 +8,8 @@
     "format": "npx prettier --write ."
   },
   "devDependencies": {
-    "astro": "^0.24.3",
+    "@astrojs/sitemap": "^1.0.0",
+    "astro": "^1.1.5",
     "prettier-plugin-astro": "^0.0.12"
   }
 }
