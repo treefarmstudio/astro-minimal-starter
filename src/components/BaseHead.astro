@@ -24,8 +24,8 @@ const image = new URL(Astro.props.image || './social.png', Astro.site);
 <title>{title || settings.title}</title>
 <meta name="title" content={title || settings.title} />
 <meta name="description" content={description || settings.description} />
-<!-- settingsmap -->
-<link rel="settingsmap" href="/settingsmap.xml">
+<!-- Sitemap -->
+<link rel="sitemap" href="/sitemap.xml">
 <!-- RSS -->
 <link rel="alternate" type="application/rss+xml" title={`${settings.name} Blog`} href={`${settings.url}/feed/blog.xml`}/>
 <!-- Canonical -->
