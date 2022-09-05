@@ -1,5 +1,13 @@
 ---
-import site from "../data/site.js";
+import site from "../data/settings.js";
+
+export interface Props {
+  title: string;
+  description: string;
+  permalink: string;
+  publishDate: string;
+  ogImageUrl?: string;
+}
 
 const { title, permalink, publishDate, ogImageUrl, description } = Astro.props;
 
