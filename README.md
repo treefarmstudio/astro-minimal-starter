@@ -41,6 +41,6 @@ npm start
 npm run build
 ```
 
-Navigate to `src/data/site.js` and edit to match your site's information.
+Navigate to `src/data/settings.js` and edit to match your site's information.
 
 Start writing new blog posts in Markdown at `src/pages/blog/`
